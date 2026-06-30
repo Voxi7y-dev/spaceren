@@ -1,0 +1,45 @@
+# SpaceRent Backend — Render Blueprint
+# Connect this repo to Render and it auto-deploys the backend.
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: spaceren-api
+    runtime: python
+    repo: https://github.com/Voxi7y-dev/spaceren
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: spaceren-db
+          property: connectionString
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://Voxi7y-dev.github.io/spaceren
+      - key: STRIPE_PRICE_ID_MONTH
+        sync: false
+      - key: STRIPE_PRICE_ID_YEAR
+        sync: false
+      - key: STORAGE_REGION
+        sync: false
+      - key: STORAGE_BUCKET
+        sync: false
+      - key: STORAGE_ACCESS_KEY
+        sync: false
+      - key: STORAGE_SECRET_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+
+databases:
+  - name: spaceren-db
+    databaseName: spaceren
+    region: frankfurt
