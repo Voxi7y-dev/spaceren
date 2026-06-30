@@ -1,0 +1,56 @@
+# ============================================================
+# SpaceRent .gitignore
+# ============================================================
+
+# --- Environment files (NEVER commit secrets) ---
+.env
+.env.local
+.env.production
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# --- Node.js ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# --- Next.js ---
+.next/
+out/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Testing ---
+coverage/
+.nyc_output/
+
+# --- Logs ---
+logs/
+*.log

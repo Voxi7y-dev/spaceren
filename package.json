@@ -1,0 +1,13 @@
+{
+  "name": "spaceren",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rent micro-spaces for £1/month or £12/year. Store anything, no limits.",
+  "scripts": {
+    "backend:dev": "cd backend && uvicorn main:app --reload --port 8000",
+    "frontend:dev": "cd frontend && npm run dev",
+    "backend:install": "cd backend && pip install -r requirements.txt",
+    "frontend:install": "cd frontend && npm install",
+    "install:all": "npm run backend:install && npm run frontend:install"
+  }
+}
